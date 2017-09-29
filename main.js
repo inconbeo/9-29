@@ -23,14 +23,8 @@ function generateItemElement(item, itemIndex, template) {
 }
 
 $(document).on('click', '.shopping-item', function() {
-  console.log('test');
   $('.shopping-item').attr('contentEditable',true);
 })
-
-// $('.shopping-item').click(function(event){
-//   console.log(event.currentTarget);
-//   $('.shopping-item').attr('contentEditable',true);
-// });
 
 function generateShoppingItemsString(shoppingList) {
   console.log('Generating shopping list element');
