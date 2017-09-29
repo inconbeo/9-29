@@ -1,16 +1,16 @@
 'use strict';
 
 const STORE = [
-  {name: "apples", checked: false},
-  {name: "oranges", checked: false},
-  {name: "milk", checked: true},
-  {name: "bread", checked: false}
+  {name: 'apples', checked: false},
+  {name: 'oranges', checked: false},
+  {name: 'milk', checked: true},
+  {name: 'bread', checked: false}
 ];
   
 function generateItemElement(item, itemIndex, template) {
   return `
   <li class="js-item-index-element" data-item-index="${itemIndex}">
-    <span class="shopping-item js-shopping-item ${item.checked ? "shopping-item__checked" : ''}">${item.name}</span>
+    <span class="shopping-item js-shopping-item ${item.checked ? 'shopping-item__checked' : ''}">${item.name}</span>
     <div class="shopping-item-controls">
       <button class="shopping-item-toggle js-item-toggle">
           <span class="button-label">check</span>
@@ -21,8 +21,17 @@ function generateItemElement(item, itemIndex, template) {
     </div>
   </li>`;
 }
-  
-  
+
+$(document).on('click', '.shopping-item', function() {
+  console.log('test');
+  $('.shopping-item').attr('contentEditable',true);
+})
+
+// $('.shopping-item').click(function(event){
+//   console.log(event.currentTarget);
+//   $('.shopping-item').attr('contentEditable',true);
+// });
+
 function generateShoppingItemsString(shoppingList) {
   console.log('Generating shopping list element');
   
@@ -58,7 +67,7 @@ function handleNewItemSubmit() {
 }
   
 function toggleCheckedForListItem(itemIndex) {
-  console.log("Toggling checked property for item at index " + itemIndex);
+  console.log('Toggling checked property for item at index ' + itemIndex);
   STORE[itemIndex].checked = !STORE[itemIndex].checked;
 }
   
@@ -70,7 +79,7 @@ function getItemIndexFromElement(item) {
 }
   
 function handleItemCheckClicked() {
-  $('.js-shopping-list').on('click', `.js-item-toggle`, event => {
+  $('.js-shopping-list').on('click', '.js-item-toggle', event => {
     console.log('`handleItemCheckClicked` ran');
     const itemIndex = getItemIndexFromElement(event.currentTarget);
     toggleCheckedForListItem(itemIndex);
