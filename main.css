@@ -43,9 +43,21 @@
     color: grey;
     font-style: italic;
     font-size: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
   
   .shopping-item__checked {
     text-decoration: line-through;
+  }
+
+  .switch {
+    margin-top: 10px;
+  }
+
+  .js-search-term {
+    margin-top: 10px;
+  }
+
+  .shopping-item_display {
+    display: none;
   }
